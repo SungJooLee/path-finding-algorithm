@@ -132,11 +132,11 @@ Convpath_length = function(sid, didvec){ #graph nodeID input
           #(case2)major in the middle
           rtype = 4
           hs = shortest.paths(subL2graph, v = startingnodeid, to = transid, mode = "all", weights = subL2graph %>% activate(edges) %>% pull(length)) 
-          targettransidlist_s = transid[which(!is.infinite(hs))] #목표 transnode 리스트
+          targettransidlist_s = transid[which(!is.infinite(hs))] #target transnode lists
           targettransidlistordered_s = targettransidlist_s[order(hs[,!is.infinite(hs)])]
           
           hd = shortest.paths(subL2graph, v = arrivingnodeid, to = transid, mode = "all", weights = subL2graph %>% activate(edges) %>% pull(length)) 
-          targettransidlist_d = transid[which(!is.infinite(hd))] #목표 transnode 리스트
+          targettransidlist_d = transid[which(!is.infinite(hd))] #target transnode lists
           targettransidlistordered_d = targettransidlist_d[order(hd[,!is.infinite(hd)])]
           
           #all combinations
@@ -207,5 +207,5 @@ Convpath_length = function(sid, didvec){ #graph nodeID input
   index = which(didvec == minid)
   minrtype = rtypevec[index]
   
-  return(list(minid, minlength, minrtype)) #list(minid, minlength)
+  return(list(minid, minlength, minrtype)) 
 }
